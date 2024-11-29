@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=wechat-base:latest
+ARG BASE_IMAGE=wechat:base
 FROM $BASE_IMAGE
 
 ARG TARGETPLATFORM
