@@ -1,4 +1,5 @@
-FROM ricwang/docker-wechat:base
+ARG BASE_IMAGE=wechat-base:latest
+FROM $BASE_IMAGE
 
 ARG TARGETPLATFORM
 
