@@ -4,6 +4,7 @@ ARG TARGETPLATFORM
 
 # 根据平台下载对应的微信安装包
 RUN if [ "$TARGETPLATFORM" -eq "linux/arm64" ]; then \
+        sudo ln -s /usr/lib/aarch64-linux-gnu/libtiff.so.6 /usr/lib/aarch64-linux-gnu/libtiff.so.5 \
         curl -O "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_arm64.deb"; \
     else \
         curl -O "https://dldir1v6.qq.com/weixin/Universal/Linux/WeChatLinux_x86_64.deb"; \
