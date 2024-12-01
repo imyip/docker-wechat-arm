@@ -12,6 +12,7 @@ RUN apt update && \
     libxcomposite1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 \
     libxss1 libxtst6 libatomic1 libxcomposite1 libxrender1 libxrandr2 libxkbcommon-x11-0 \
     libfontconfig1 libdbus-1-3 libnss3 libx11-xcb1 libasound2t64 && \
+    sudo apt install libatomic1 -y && wget -O libtiff5.deb https://security.debian.org/pool/updates/main/t/tiff/libtiff5_4.2.0-1+deb11u5_arm64.deb && wget -O libwebp6.deb https://security.debian.org/pool/updates/main/libw/libwebp/libwebp6_0.6.1-2.1+deb11u2_arm64.deb && sudo dpkg -i libtiff5.deb libwebp6.deb && \
     # 清理工作
     apt clean && \
     rm -rf /var/lib/apt/lists/*
