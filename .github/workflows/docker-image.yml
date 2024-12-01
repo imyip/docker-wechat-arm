@@ -46,26 +46,24 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      # Step 1: Build and push base image
-      # - name: Build and push base image
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     context: .
-      #     platforms: linux/amd64,linux/arm64
-      #     file: ./Dockerfile-base
-      #     push: true
-      #     tags: ghcr.io/${{ github.repository_owner }}/docker-wechat:base
-      # Step 2: Build and push the main image based on the base image
+      Step 1: Build and push base image
+      - name: Build and push base image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/arm64
+          file: ./Dockerfile-base
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/docker-wechat:base
+      Step 2: Build and push the main image based on the base image
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: |
-            linux/amd64
-            linux/arm64
+          platforms: linux/arm64
           provenance: false
           file: ./Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          # build-args: |
-          #   BASE_IMAGE=ghcr.io/${{ github.repository_owner }}/docker-wechat:base
+          build-args: |
+            BASE_IMAGE=ghcr.io/${{ github.repository_owner }}/docker-wechat:base
