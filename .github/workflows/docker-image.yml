@@ -50,7 +50,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/arm
+          platforms: linux/arm64
           file: ./Dockerfile-base
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/docker-wechat:base
@@ -58,7 +58,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/arm
+          platforms: linux/arm64
           provenance: false
           file: ./Dockerfile
           push: true
