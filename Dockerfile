@@ -1,8 +1,7 @@
 FROM jlesage/baseimage-gui:debian-12-v4
 
 # 安装必要依赖
-RUN apt update && apt install -y fonts-noto-cjk-extra wget \
-    libglib2.0-0 libatomic1 \
+RUN apt update && apt install -y fonts-noto-cjk-extra wget libglib2.0-0 libatomic1 libtiff5-dev \
     libxcomposite1 libxrender1 libxrandr2 libxkbcommon-x11-0 libfontconfig1 libdbus-1-3 libnss3 libx11-xcb1 \
     libxcb-glx0 desktop-file-utils libxcb-randr0 libxcb-icccm4 libxcb-shm0 \
     libatk1.0-0 libatk-bridge2.0-0 libxdamage1 libxfixes3 libgbm1 libpango-1.0-0 libcairo2 libasound2 \
